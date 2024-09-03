@@ -66,10 +66,20 @@ public class DynamicArray <T> implements Iterable<T> {
     }
 
     public void sort() {
-        Arrays.sort(arr, 0, length - 1);
+        Arrays.sort(arr, 0, length - 1 );
     }
 
 
+    public boolean remove(T item) {
+        boolean found = false;
+        for(int i = 0; i < length ; i++) {
+            if(arr[i] == item) {
+                if(i != length - 1) arr[i] = arr[i + 1];
+            }
+        }
+        if(found) length -= 1;
+        return found;
+    }
 
     public void clear() {
         length = 0;
